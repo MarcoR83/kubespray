@@ -65,12 +65,12 @@ quay_image_repo: "quay.io"
 
 # TODO(mattymo): Move calico versions to roles/network_plugins/calico/defaults
 # after migration to container download
-calico_version: "v3.7.3"
-calico_ctl_version: "v3.7.3"
-calico_cni_version: "v3.7.3"
-calico_policy_version: "v3.7.3"
+calico_version: "v3.8.5"
+calico_ctl_version: "v3.8.5"
+calico_cni_version: "v3.8.5"
+calico_policy_version: "v3.8.5"
 calico_rr_version: "v0.6.1"
-calico_typha_version: "v3.7.3"
+calico_typha_version: "v3.8.5"
 typha_enabled: false
 
 flannel_version: "v0.11.0"
@@ -89,6 +89,7 @@ multus_version: "v3.2.1"
 # Get kubernetes major version (i.e. 1.15.4 => 1.15)
 kube_major_version: "{{ kube_version | regex_replace('^v([0-9])+\\.([0-9]+)\\.[0-9]+', 'v\\1.\\2') }}"
 crictl_supported_versions:
+  v1.17: "v1.16.1"
   v1.16: "v1.16.1"
   v1.15: "v1.15.0"
 crictl_version: "{{ crictl_supported_versions[kube_major_version] }}"
@@ -144,6 +145,7 @@ kubelet_checksums:
     v1.15.1: 3032531dc8ff4ea1debafcfb7b84f6c39a83e67a452a50b64d1023ba57299100
     v1.15.0: a16443434eb0391991bff9a10288d83beb38be4d406954858d9fdc1063870284
   amd64:
+    v1.17.0: c2af77f501c3164e80171903028d35c632366f53dec0c8419828d4e55d86146f
     v1.17.0-rc.1: e4860d4ad7f51c0d7f60060722acfe0ec59706f663e31dd9f0a07025e0f92c77
     v1.16.3: 4e8ef215809f1b2af44408bf6039c9e57546a8a209b49720d0489e3aece66938
     v1.16.2: 0c24425d7cc029bffd86bfbedcb6a63cd42c21052c3248e43918ef15d3fc03ee
@@ -155,6 +157,7 @@ kubelet_checksums:
     v1.15.2: 5f1001608bac508ba7158704e8f762911dd52d0e16740984679f5c8263336e08
     v1.15.1: d9f5c09d47c448ac12b061821c1149aba32933cf79470a85e46d8b3b338aa72b
     v1.15.0: f13b9a2f840e0e18b4fa92a217c95977036113c74f56bb0652efd2e7bcbfba15
+
 
 kubectl_checksums:
   arm:
@@ -182,6 +185,7 @@ kubectl_checksums:
     v1.15.1: 1f5ad15f0522c5038ea014f4b6987a7a67d68585c1fb158349619b552c027a8c
     v1.15.0: db05f4c1799e019d5ebc51737f31132c191ffce13c516fa758e7137173abd855
   amd64:
+    v1.17.0: 6e0aaaffe5507a44ec6b1b8a0fb585285813b78cc045f8804e70a6aac9d1cb4c
     v1.17.0-rc.1: 1b24e34d0de028054ae59f7208ff5db4ae3bb16d1fe771422b4f8f3b698cac79
     v1.16.3: cded1b46405741575f31024b757fd967645e815bb0ab1c5f5fcd029f25cc0f2d
     v1.16.2: 3ff48e12f9c768ad548e4221d805281ea28dfcda5c18b3cd1797fe37aee3012e
@@ -220,6 +224,7 @@ kubeadm_checksums:
     v1.15.1: 44fbfad0f1026d249fc4f365f1e9562cd52d75360d4d1032731122ba5a4d57dc
     v1.15.0: fe3c79070814fe847a23209b1027672fe5c5e7e5c9611e329225058926836f96
   amd64:
+    v1.17.0: 0d8443f50fb7caab2e5e7e53f9dc56d5ffe55f021ec061f2e2bcba0481df5a48
     v1.17.0-rc.1: d8a0355de308201754e2a85f73d9cd5e741218f220811ee7767151109d1c6215
     v1.16.3: acecd15cf5471d4870959020022676e14cb6901f3c8f97019e5faee8ca956fd7
     v1.16.2: 9cd4a5b087088a9053ff40113ca182f0c2f959e2e51049ed2f850785c2588e04
@@ -253,6 +258,7 @@ calicoctl_binary_checksums:
     v3.5.4: 197194b838cc2a9a7455c2ebd5505a5e24f8f3d994eb75c17f5dd568944100b8
     v3.4.4: 93bd084e053cf1bf3b7fef369677bd6767c30fe7135e2c7e044e31693422ef61
     v3.7.3: 932f68e893e80e95e10f064f1e7745e438d456f41a6ff12d11bb16ca0cab735c
+    v3.8.5: 13252dbdea3ace389b3fa959f8a65439d6fb08a86dd5863f97c0126f54d323aa
   arm64:
     v3.6.1: 60fbaeb257061647bdf12b5ede7a0d4298a5ee216f6472e5a92bb14ef5c2a5d3
     v3.5.4: a4481178665658658a73e4ceca9a1dff5cccded4179615c91d1c3e49fd96f237

@@ -259,6 +259,8 @@ spec:
               value: "true"
             - name: FELIX_IGNORELOOSERPF
               value: "{{ calico_node_ignorelooserpf }}"
+            - name: FELIX_IPTABLESBACKEND
+              value: NFT
           securityContext:
             privileged: true
           resources:
